@@ -33,8 +33,26 @@ while carryOn:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             carryOn = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_x:  # Pressing the x Key will quit the game
+                carryOn = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        paddleA.moveUp(5)
+    if keys[pygame.K_s]:
+        paddleA.moveDown(5)
+    if keys[pygame.K_UP]:
+        paddleB.moveUp(5)
+    if keys[pygame.K_DOWN]:
+        paddleB.moveDown(5)
+
+    all_sprites_list.update()
+
     screen.fill(BLACK)
     pygame.draw.line(screen, WHITE, [349, 0], [349, 500], 5)
+
+    all_sprites_list.draw(screen)
 
     pygame.display.flip()
 
