@@ -1,4 +1,5 @@
 import pygame
+from paddle import Paddle
 
 pygame.init()
 
@@ -10,6 +11,19 @@ WHITE = (255, 255, 255)
 size = (700, 500)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Pong")
+
+paddleA = Paddle(WHITE, 10, 100)
+paddleA.rect.x = 20
+paddleA.rect.y = 200
+
+paddleB = Paddle(WHITE, 10, 100)
+paddleB.rect.x = 670
+paddleB.rect.y = 200
+
+all_sprites_list = pygame.sprite.Group()
+
+all_sprites_list.add(paddleA)
+all_sprites_list.add(paddleB)
 
 carryOn = True
 
