@@ -15,4 +15,16 @@ carryOn = True
 
 clock = pygame.time.Clock()
 
+while carryOn:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            carryOn = False
+    screen.fill(BLACK)
+    pygame.draw.line(screen, WHITE, [349, 0], [349, 500], 5)
+
+    pygame.display.flip()
+
+    clock.tick(60)
+
+
 pygame.quit()
