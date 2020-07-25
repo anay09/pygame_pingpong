@@ -4,13 +4,13 @@ BLACK = (0, 0, 0)
 
 
 class Paddle(pygame.sprite.Sprite):
-    # This class represents a paddle. It derives from the "Sprite" class in Pygame.
+    # This class represents a car. It derives from the "Sprite" class in Pygame.
 
     def __init__(self, color, width, height):
         # Call the parent class (Sprite) constructor
         super().__init__()
 
-        # Pass in the color of the paddle, and its x and y position, width and height.
+        # Pass in the color of the car, and its x and y position, width and height.
         # Set the background color and set it to be transparent
         self.image = pygame.Surface([width, height])
         self.image.fill(BLACK)
@@ -22,13 +22,13 @@ class Paddle(pygame.sprite.Sprite):
         # Fetch the rectangle object that has the dimensions of the image.
         self.rect = self.image.get_rect()
 
-    def move_up(self, pixels):
+    def moveUp(self, pixels):
         self.rect.y -= pixels
         # Check that you are not going too far (off the screen)
         if self.rect.y < 0:
             self.rect.y = 0
 
-    def move_down(self, pixels):
+    def moveDown(self, pixels):
         self.rect.y += pixels
         # Check that you are not going too far (off the screen)
         if self.rect.y > 400:
